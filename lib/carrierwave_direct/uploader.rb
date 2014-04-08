@@ -35,7 +35,8 @@ module CarrierWaveDirect
       options[:max_file_size] ||= max_file_size
 
       conditions = [
-        ["starts-with", "$utf8", ""]
+        ["starts-with", "$utf8", ""],
+        ["starts-with", "$key", key.split('/').first]
       ]
 
       conditions << ["starts-with", "$Content-Type", ""] if will_include_content_type
